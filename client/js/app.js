@@ -1,14 +1,14 @@
 (function () {
     "use strict";
 
-    // Declares the module
+    // Declares the module.
     var duckModule = angular.module('duckModule',
-        ['ngRoute', 'ngResource', 'ngCookies']);
+        ['ngRoute', 'ngResource']);
 
-    // Configures the routing
-    todoModule.config(function ($routeProvider) {
+    // Configures routing.
+    duckModule.config(function ($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl: 'index.html',
+            templateUrl: 'templates/sightings.html',
             controller: 'DuckCtrl'
         });
 
@@ -17,7 +17,7 @@
             controller: 'AddCtrl'
         });
 
-        // Redirects to main page
+        // Redirects to main page.
         $routeProvider.otherwise({redirectTo: '/'});
     });
 }());

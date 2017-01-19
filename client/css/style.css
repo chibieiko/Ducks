@@ -1,0 +1,4 @@
+.navbar {
+    /* Removes rounded borders from navbar */
+    border-radius: 0;
+}
