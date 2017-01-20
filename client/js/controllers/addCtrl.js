@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("duckModule").controller("AddCtrl",
-        function ($scope, DuckService, $location) {
+        function ($scope, DuckService, $location, toastr) {
 
             $scope.sighting = {
                 count: 1
@@ -15,7 +15,8 @@
                         $scope.selectedSpecies = $scope.species[0];
                         console.log($scope.species);
                     } else {
-                        console.log("get species failed")
+                        toastr.error("Failed to get species from server.",
+                            "Internal server error");
                     }
                 });
             }
@@ -27,19 +28,19 @@
                 var tempDate = moment($scope.dateTime, "DD/MM/YYYY HH:mm");
                 $scope.sighting.dateTime = tempDate.toISOString();
 
-                console.log($scope.sighting);
-
                 if ($scope.sighting.description !== undefined) {
                     DuckService.addSighting($scope.sighting, function (res, err) {
                         if (!err) {
-                            console.log("Successfully saved");
                             $location.path("/");
+                            toastr.success("Succesfully saved the sighting!");
                         } else {
-                            console.log("Failed to save")
+                            toastr.error("Failed to save the sighting.",
+                                "Internal server error");
                         }
                     })
                 } else {
-                    console.log("Please provide a valid description");
+                    toastr.error("Please provide a valid description.",
+                        "Error sending form")
                 }
             };
         });

@@ -4,7 +4,7 @@
     // Declares the module.
     var duckModule = angular.module('duckModule',
         ['ngRoute', 'ngResource', 'ui.bootstrap',
-            'ui.bootstrap.datetimepicker']);
+            'ui.bootstrap.datetimepicker', 'toastr']);
 
     // Configures routing.
     duckModule.config(function ($routeProvider, $provide) {
