@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("duckModule").controller("DuckCtrl",
-        function ($scope, DuckService) {
+        function ($scope, DuckService, $location) {
 
             $scope.getSightings = function () {
                 DuckService.getSightings(function (res, err) {
@@ -15,5 +15,10 @@
             };
 
             $scope.getSightings();
+
+            $scope.addSighting = function () {
+                console.log("redirect me");
+                $location.path("/add");
+            }
         });
 }());
