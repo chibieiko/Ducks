@@ -36,10 +36,10 @@
                     <div class="input-group">
                         <input required
                                type="text" id="date-picker"
-                               pattern="^\d{2}-\d{2}-\d{4} \d{2}:\d{2}$"
+                               pattern="^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$"
                                class="form-control"
                                data-ng-model="sighting.dateTime"
-                               placeholder="DD-MM-YYYY HH:mm"/>
+                               placeholder="DD/MM/YYYY HH:mm"/>
                         <span class="input-group-btn" uib-dropdown-toggle>
                         <button type="button" class="btn btn-primary">
                             <i class="fa fa-calendar"></i>
@@ -51,7 +51,7 @@
                                         data-datetimepicker-config=
                                                 "{
                                                 minuteStep: 1,
-                                                modelType: 'DD-MM-YYYY HH:mm'
+                                                modelType: 'DD/MM/YYYY HH:mm'
                                                 }"
                                         data-on-set-time="status.isopen=false">
                         </datetimepicker>
