@@ -1,2 +1,70 @@
 <h1>Add a duck sighting</h1>
 
+<form>
+
+    <!-- SPECIES -->
+    <div class="form-group">
+        <label for="species">Select a species</label>
+        <select class="form-control" id="species">
+            <option data-ng-repeat="specie in species"
+                    data-ng-model="specie.name">
+                {{specie.name}}
+            </option>
+        </select>
+    </div>
+
+
+    <!-- COUNT -->
+    <div class="form-group row">
+        <label for="count" class="col-xs-3 col-form-label">
+            Number of ducks sighted</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="number" value="1" min="1"
+                   id="count" data-ng-model="sighting.count">
+        </div>
+    </div>
+
+
+    <!-- DATE -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group required">
+                <label for="date-picker">Date and time of the sighting</label>
+                <div uib-dropdown is-open="status.isopen">
+                    <div class="input-group">
+                        <input required
+                               type="text" id="date-picker"
+                               pattern="^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$"
+                               class="form-control"
+                               data-ng-model="sighting.date"
+                               placeholder="vvvv-kk-pp hh:mm"/>
+                        <span class="input-group-btn" uib-dropdown-toggle>
+                        <button type="button" class="btn btn-primary">
+                            <i class="fa fa-calendar"></i>
+                        </button>
+                    </span>
+                    </div>
+                    <ul uib-dropdown-menu>
+                        <datetimepicker data-ng-model="sighting.date"
+                                        data-datetimepicker-config=
+                                                "{minuteStep: 15}"
+                                        data-on-set-time="status.isopen=false">
+                        </datetimepicker>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="form-group">
+        <label for="description">Describe the sighting</label>
+        <textarea class="form-control" id="description" rows="4" required
+                  data-ng-model="sighting.description">
+            </textarea>
+    </div>
+
+
+    <!-- SUBMIT -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
