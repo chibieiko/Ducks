@@ -166,7 +166,7 @@
         var startDate = moment.utc(milliseconds).startOf('year')
         var previousViewDate = startOfDecade(milliseconds)
 
-        var monthFormat = 'YYYY-MMM'
+        var monthFormat = 'MM-YYYY'
         var activeFormat = formatValue(ngModelController.$modelValue, monthFormat)
         var currentFormat = moment().format(monthFormat)
 
@@ -206,7 +206,7 @@
 
         var startDate = moment.utc(startOfMonth).subtract(Math.abs(startOfMonth.weekday()), 'days')
 
-        var dayFormat = 'YYYY-MMM-DD'
+        var dayFormat = 'DD-MM-YYYY'
         var activeFormat = formatValue(ngModelController.$modelValue, dayFormat)
         var currentFormat = moment().format(dayFormat)
 

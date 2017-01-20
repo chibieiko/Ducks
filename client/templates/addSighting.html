@@ -1,43 +1,45 @@
 <h1>Add a duck sighting</h1>
 
-<form>
+<form data-ng-submit="saveSighting()">
 
     <!-- SPECIES -->
-    <div class="form-group">
-        <label for="species">Select a species</label>
-        <select class="form-control" id="species">
-            <option data-ng-repeat="specie in species"
-                    data-ng-model="specie.name">
-                {{specie.name}}
-            </option>
-        </select>
-    </div>
+    <div class="row" on-enter="">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="species_id">Select a species</label>
+                <select class="form-control" id="species_id"
+                        data-ng-model="selectedSpecies"
+                        data-ng-options="specie.name for specie
+                        in species">
+                </select>
+            </div>
+        </div>
 
-
-    <!-- COUNT -->
-    <div class="form-group row">
-        <label for="count" class="col-xs-3 col-form-label">
-            Number of ducks sighted</label>
-        <div class="col-xs-10">
-            <input class="form-control" type="number" value="1" min="1"
-                   id="count" data-ng-model="sighting.count">
+        <!-- COUNT -->
+        <div class="col-sm-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="count">
+                    Number of ducks sighted</label>
+                <input class="form-control" type="number" min="1" value="1"
+                       id="count" data-ng-model="sighting.count">
+            </div>
         </div>
     </div>
-
 
     <!-- DATE -->
     <div class="row">
         <div class="col-md-6">
             <div class="form-group required">
-                <label for="date-picker">Date and time of the sighting</label>
+                <label for="date-picker">Date and time of the
+                    sighting</label>
                 <div uib-dropdown is-open="status.isopen">
                     <div class="input-group">
                         <input required
                                type="text" id="date-picker"
-                               pattern="^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$"
+                               pattern="^\d{2}-\d{2}-\d{4} \d{2}:\d{2}$"
                                class="form-control"
-                               data-ng-model="sighting.date"
-                               placeholder="vvvv-kk-pp hh:mm"/>
+                               data-ng-model="sighting.dateTime"
+                               placeholder="DD-MM-YYYY HH:mm"/>
                         <span class="input-group-btn" uib-dropdown-toggle>
                         <button type="button" class="btn btn-primary">
                             <i class="fa fa-calendar"></i>
@@ -45,9 +47,12 @@
                     </span>
                     </div>
                     <ul uib-dropdown-menu>
-                        <datetimepicker data-ng-model="sighting.date"
+                        <datetimepicker data-ng-model="sighting.dateTime"
                                         data-datetimepicker-config=
-                                                "{minuteStep: 15}"
+                                                "{
+                                                minuteStep: 1,
+                                                modelType: 'DD-MM-YYYY HH:mm'
+                                                }"
                                         data-on-set-time="status.isopen=false">
                         </datetimepicker>
                     </ul>
@@ -63,7 +68,6 @@
                   data-ng-model="sighting.description">
             </textarea>
     </div>
-
 
     <!-- SUBMIT -->
     <button type="submit" class="btn btn-primary">Submit</button>
