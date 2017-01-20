@@ -1,0 +1,24 @@
+<h1>Duck sightings</h1>
+
+<button type="button" id="add-button" class="btn btn-success"
+        data-ng-click=""><span
+        class="glyphicon glyphicon-plus"></span> Add sighting
+</button>
+
+<div class="panel panel-default" data-ng-repeat="sighting in sightings">
+    <div class="panel-heading row">
+        <div class="col-xs-1">
+            <span class="badge">{{sighting.count}}</span>
+        </div>
+        <div class="col-xs-6 capital-letter">{{sighting.species}}</div>
+        <div class="col-xs-5">
+            <span class="pull-right">
+                {{sighting.dateTime | date : "HH:mm dd.MM.yyyy"}}
+            </span>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        {{sighting.description}}
+    </div>
+</div>
