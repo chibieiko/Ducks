@@ -16,7 +16,6 @@
                     // Server returns an array so query is better than get.
                     sightings = result.query({type: "sightings"}
                         , function () {
-                            console.log(sightings);
                             callback(sightings, null);
                         }, function (err) {
                             callback(null, err);

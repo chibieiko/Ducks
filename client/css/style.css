@@ -1,4 +1,15 @@
+/* ------------------ sightings.html ------------------ */
 .navbar {
     /* Removes rounded borders from navbar */
     border-radius: 0;
+}
+
+#add-button {
+    margin: 20px 0;
+}
+
+.panel-heading.row {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
