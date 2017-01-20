@@ -3,7 +3,7 @@
 <form data-ng-submit="saveSighting()">
 
     <!-- SPECIES -->
-    <div class="row" on-enter="">
+    <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label for="species_id">Select a species</label>
@@ -28,7 +28,7 @@
 
     <!-- DATE -->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group required">
                 <label for="date-picker">Date and time of the
                     sighting</label>
@@ -38,7 +38,7 @@
                                type="text" id="date-picker"
                                pattern="^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$"
                                class="form-control"
-                               data-ng-model="sighting.dateTime"
+                               data-ng-model="dateTime"
                                placeholder="DD/MM/YYYY HH:mm"/>
                         <span class="input-group-btn" uib-dropdown-toggle>
                         <button type="button" class="btn btn-primary">
@@ -47,7 +47,7 @@
                     </span>
                     </div>
                     <ul uib-dropdown-menu>
-                        <datetimepicker data-ng-model="sighting.dateTime"
+                        <datetimepicker data-ng-model="dateTime"
                                         data-datetimepicker-config=
                                                 "{
                                                 minuteStep: 1,
@@ -62,11 +62,16 @@
     </div>
 
     <!-- DESCRIPTION -->
-    <div class="form-group">
-        <label for="description">Describe the sighting</label>
-        <textarea class="form-control" id="description" rows="4" required
-                  data-ng-model="sighting.description">
-            </textarea>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="description">Describe the sighting</label>
+                <textarea class="form-control" id="description" rows="4"
+                          maxlength="1000" required
+                          data-ng-model="sighting.description">
+                </textarea>
+            </div>
+        </div>
     </div>
 
     <!-- SUBMIT -->
