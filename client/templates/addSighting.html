@@ -52,7 +52,7 @@
                             <ul uib-dropdown-menu>
                                 <datetimepicker data-ng-model="dateTime"
                                                 data-datetimepicker-config=
-                                                        "{
+                                                "{
                                                 minuteStep: 1,
                                                 modelType: 'DD/MM/YYYY HH:mm'
                                                 }"
@@ -79,5 +79,9 @@
 
     <!-- SUBMIT -->
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-default" id="cancel-button"
+            data-ng-click="cancel()">
+        Cancel
+    </button>
 
 </form>
