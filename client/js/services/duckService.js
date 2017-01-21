@@ -9,25 +9,14 @@
 
             var duck = {
 
-                // ---------------------- SIGHTING FUNCTIONS ---------------------------
+                // ---------------------- SIGHTING FUNCTIONS ------------------
 
                 getSightings: function (callback) {
                     var sightings;
-                    // Server returns an array so query is better than get
+                    // Server returns an array so query is better than get.
                     sightings = result.query({type: "sightings"}
                         , function () {
                             callback(sightings, null);
-                        }, function (err) {
-                            callback(null, err);
-                        });
-                },
-
-                getSpecies: function (callback) {
-                    var species;
-                    // Server returns an array so query is better than get
-                    species = result.query({type: "species"}
-                        , function () {
-                            callback(species, null);
                         }, function (err) {
                             callback(null, err);
                         });
@@ -38,7 +27,20 @@
                     sighting = result.save({type: "sightings"},
                         sightingData
                         , function () {
-                            callback(root, null);
+                            callback(sighting, null);
+                        }, function (err) {
+                            callback(null, err);
+                        });
+                },
+
+                // ----------------------- SPECIES FUNCTION -------------------
+
+                getSpecies: function (callback) {
+                    var species;
+                    // Server returns an array so query is better than get.
+                    species = result.query({type: "species"}
+                        , function () {
+                            callback(species, null);
                         }, function (err) {
                             callback(null, err);
                         });
