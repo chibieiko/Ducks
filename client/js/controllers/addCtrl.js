@@ -18,6 +18,10 @@
                 }
             });
 
+            $scope.cancel = function () {
+                $location.path("/");
+            };
+
             $scope.saveSighting = function () {
                 $scope.sighting.species = $scope.selectedSpecies.name;
                 var tempDate = moment($scope.dateTime, "DD/MM/YYYY HH:mm");

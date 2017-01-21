@@ -26,12 +26,12 @@
     word-wrap: break-word;
 }
 
-/*Handles chevron transition speed*/
+/* Handles chevron transition speed */
 .chevron {
     transition: all 0.6s;
 }
 
-/*Turns chevron 180 degrees to left*/
+/* Turns chevron 180 degrees to left */
 .chevron-open {
     transform: rotate(-180deg);
 }
@@ -43,6 +43,10 @@
 
 .no-padding {
     padding: 0;
+}
+
+#cancel-button {
+    margin-left: 10px;
 }
 
 @media (min-width: 768px) {
