@@ -18,6 +18,20 @@
     text-transform: capitalize;
 }
 
+.break-word {
+    word-wrap: break-word;
+}
+
+/*Handles chevron transition speed*/
+.chevron {
+    transition: all 0.6s;
+}
+
+/*Turns chevron 180 degrees to left*/
+.chevron-open {
+    transform: rotate(-180deg);
+}
+
 /* ------------------ addSighting.html ------------------ */
 #add-heading {
     margin-bottom: 40px;
