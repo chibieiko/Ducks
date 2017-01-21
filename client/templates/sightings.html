@@ -12,7 +12,7 @@
                 data-ng-click="toggleSort()">
             <span class="glyphicon glyphicon-chevron-down chevron"
                   data-ng-class="{'chevron-open' : chevronSort}"></span>
-             Sort
+            Sort
         </button>
     </div>
 </div>
@@ -20,11 +20,11 @@
 <div class="panel panel-default" data-ng-repeat="sighting in sightings |
 orderBy: 'dateTime' : reverse">
     <div class="panel-heading row">
-        <div class="col-xs-1">
+        <div class="col-xs-5">
             <span class="badge">{{sighting.count}}</span>
+            <div class="capital-letter">{{sighting.species}}</div>
         </div>
-        <div class="col-xs-5 capital-letter">{{sighting.species}}</div>
-        <div class="col-xs-6">
+        <div class="col-xs-7">
             <span class="pull-right">
                 {{sighting.dateTime | date : "dd/MM/yyyy HH:mm"}}
             </span>

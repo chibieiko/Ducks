@@ -14,6 +14,10 @@
     padding-right: 0;
 }
 
+.capital-letter {
+    display: inline-block;
+}
+
 .capital-letter:first-letter {
     text-transform: capitalize;
 }
