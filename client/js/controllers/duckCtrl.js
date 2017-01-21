@@ -19,6 +19,12 @@
 
             $scope.addSighting = function () {
                 $location.path("/add");
+            };
+
+            $scope.reverse = true;
+            $scope.toggleSort = function() {
+                $scope.reverse = !($scope.reverse);
             }
+
         });
 }());
