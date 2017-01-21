@@ -27,7 +27,7 @@
                     sighting = result.save({type: "sightings"},
                         sightingData
                         , function () {
-                            callback(root, null);
+                            callback(sighting, null);
                         }, function (err) {
                             callback(null, err);
                         });
