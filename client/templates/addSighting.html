@@ -1,79 +1,83 @@
-<h1>Add a duck sighting</h1>
+<h1 id="add-heading">Add a duck sighting</h1>
 
 <form data-ng-submit="saveSighting()">
 
     <!-- SPECIES -->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="species_id">Select a species</label>
-                <select class="form-control" id="species_id"
-                        data-ng-model="selectedSpecies"
-                        data-ng-options="specie.name for specie
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 no-padding">
+                <div class="col-sm-12 no-padding">
+                    <div class="form-group">
+                        <label for="species_id">Select a species</label>
+                        <select class="form-control" id="species_id"
+                                data-ng-model="selectedSpecies"
+                                data-ng-options="specie.name for specie
                         in species">
-                </select>
-            </div>
-        </div>
+                        </select>
+                    </div>
+                </div>
 
-        <!-- COUNT -->
-        <div class="col-sm-offset-1 col-md-4">
-            <div class="form-group">
-                <label for="count">
-                    Number of ducks sighted</label>
-                <input class="form-control" type="number" min="1" value="1"
-                       id="count" data-ng-model="sighting.count">
-            </div>
-        </div>
-    </div>
+                <!-- COUNT -->
+                <div class="col-sm-12 no-padding">
+                    <div class="form-group">
+                        <label for="count">
+                            Number of ducks sighted</label>
+                        <input class="form-control" type="number" min="1"
+                               value="1"
+                               id="count" data-ng-model="sighting.count"
+                               required>
+                    </div>
+                </div>
 
-    <!-- DATE -->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group required">
-                <label for="date-picker">Date and time of the
-                    sighting</label>
-                <div uib-dropdown is-open="status.isopen">
-                    <div class="input-group">
-                        <input required
-                               type="text" id="date-picker"
-                               pattern="^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$"
-                               class="form-control"
-                               data-ng-model="dateTime"
-                               placeholder="DD/MM/YYYY HH:mm"/>
-                        <span class="input-group-btn" uib-dropdown-toggle>
+                <!-- DATE -->
+                <div class="col-sm-12 no-padding">
+                    <div class="form-group required">
+                        <label for="date-picker">Date and time of the
+                            sighting</label>
+                        <div uib-dropdown is-open="status.isopen">
+                            <div class="input-group">
+                                <input required
+                                       type="text" id="date-picker"
+                                       pattern="^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$"
+                                       class="form-control"
+                                       data-ng-model="dateTime"
+                                       placeholder="DD/MM/YYYY HH:mm"/>
+                                <span class="input-group-btn"
+                                      uib-dropdown-toggle>
                         <button type="button" class="btn btn-primary">
                             <i class="fa fa-calendar"></i>
                         </button>
                     </span>
-                    </div>
-                    <ul uib-dropdown-menu>
-                        <datetimepicker data-ng-model="dateTime"
-                                        data-datetimepicker-config=
-                                                "{
+                            </div>
+                            <ul uib-dropdown-menu>
+                                <datetimepicker data-ng-model="dateTime"
+                                                data-datetimepicker-config=
+                                                        "{
                                                 minuteStep: 1,
                                                 modelType: 'DD/MM/YYYY HH:mm'
                                                 }"
-                                        data-on-set-time="status.isopen=false">
-                        </datetimepicker>
-                    </ul>
+                                                data-on-set-time="status.isopen=false">
+                                </datetimepicker>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- DESCRIPTION -->
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="form-group">
-                <label for="description">Describe the sighting</label>
-                <textarea class="form-control" id="description" rows="4"
-                          maxlength="1000" required
-                          data-ng-model="sighting.description">
+            <!-- DESCRIPTION -->
+            <div class="col-xs-12 col-sm-6 no-padding">
+                <div class="form-group">
+                    <label for="description">Describe the sighting</label>
+                    <textarea class="form-control" id="description" rows="8"
+                              maxlength="1000" required
+                              data-ng-model="sighting.description">
                 </textarea>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- SUBMIT -->
     <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>

@@ -32,7 +32,7 @@
                     DuckService.addSighting($scope.sighting, function (res, err) {
                         if (!err) {
                             $location.path("/");
-                            toastr.success("Succesfully saved the sighting!");
+                            toastr.success("Sighting succesfully saved!");
                         } else {
                             toastr.error("Failed to save the sighting.",
                                 "Internal server error");
